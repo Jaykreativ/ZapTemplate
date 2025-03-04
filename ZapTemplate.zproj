@@ -1,0 +1,8 @@
+name: ZapTemplate;
+assetLibraryPath: ZapTemplate.zal;
+[ActorPaths] {
+actorPathCount: 3;
+actorPath0: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Actors\ZapGear.zac;
+actorPath1: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Actors\Light1.zac;
+actorPath2: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Actors\Light2.zac;
+}

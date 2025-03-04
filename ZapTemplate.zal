@@ -1,0 +1,99 @@
+meshCount: 10;
+[Mesh0] {
+handle: 2556615970164170081;
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 0;
+transform: mat4x4((0.905811, 0.000000, 0.423683, 0.000000), (0.000000, 1.250000, 0.000000, 0.000000), (-0.423683, 0.000000, 0.905811, 0.000000), (-4.546041, 1.899959, -3.762241, 1.000000));
+}
+[Mesh1] {
+handle: 5548992122967985665;
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 1;
+transform: mat4x4((0.634067, 0.000000, 0.296578, 0.000000), (0.000000, 0.100000, 0.000000, 0.000000), (-0.296578, 0.000000, 0.634067, 0.000000), (-4.546041, 0.899959, -3.762240, 1.000000));
+}
+[Mesh2] {
+handle: 2324174597249677488;
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 2;
+transform: mat4x4((0.634067, 0.000000, 0.296578, 0.000000), (0.000000, 0.100000, 0.000000, 0.000000), (-0.296578, 0.000000, 0.634067, 0.000000), (-4.546041, 0.899959, -3.762240, 1.000000));
+}
+[Mesh3] {
+handle: 6084354130059555718;
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 3;
+transform: mat4x4((1.359462, 0.000000, 0.633927, 0.000000), (0.000000, 0.900000, 0.000000, 0.000000), (-0.633927, 0.000000, 1.359462, 0.000000), (3.023533, 1.000000, 1.034616, 1.000000));
+}
+[Mesh4] {
+handle: 8816597521690730514;
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 4;
+transform: mat4x4((1.359462, 0.000000, 0.633927, 0.000000), (0.000000, 0.900000, 0.000000, 0.000000), (-0.633927, 0.000000, 1.359462, 0.000000), (3.023533, 1.000000, 1.034616, 1.000000));
+}
+[Mesh5] {
+handle: 17913653587079185732;
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 5;
+transform: mat4x4((1.359462, 0.000000, 0.633927, 0.000000), (0.000000, 0.900000, 0.000000, 0.000000), (-0.633927, 0.000000, 1.359462, 0.000000), (3.023533, 1.000000, 1.034616, 1.000000));
+}
+[Mesh6] {
+handle: 10572144620889800087;
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 6;
+transform: mat4x4((1.359462, 0.000000, 0.633927, 0.000000), (0.000000, 0.900000, 0.000000, 0.000000), (-0.633927, 0.000000, 1.359462, 0.000000), (3.023533, 1.000000, 1.034616, 1.000000));
+}
+[Mesh7] {
+handle: 14129341853316276066;
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 7;
+transform: mat4x4((0.951623, 0.000000, 0.443749, 0.000000), (0.000000, 0.800000, 0.000000, 0.000000), (-0.443749, 0.000000, 0.951623, 0.000000), (3.023533, 1.000000, 1.034616, 1.000000));
+}
+[Mesh8] {
+handle: 3821888510387316476;
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 8;
+transform: mat4x4((0.050000, 0.000000, 0.000000, 0.000000), (0.000000, 0.250000, 0.000000, 0.000000), (0.000000, 0.000000, 0.050000, 0.000000), (-3.018191, 1.800000, 0.683863, 1.000000));
+}
+[Mesh9] {
+handle: 15285329071068467213;
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 9;
+transform: mat4x4((0.050000, 0.000000, 0.000000, 0.000000), (0.000000, 0.250000, 0.000000, 0.000000), (0.000000, 0.000000, 0.050000, 0.000000), (-3.018191, 1.800000, 0.683863, 1.000000));
+}
+materialCount: 4;
+[Material0] {
+handle: 10970695593427879896;
+albedo: vec4(0.850000, 0.875000, 0.900000, 1.000000);
+metallic: 1.000000;
+roughness: 0.050000;
+emissive: vec4(0.000000, 0.000000, 0.000000, 0.000000);
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 0;
+}
+[Material1] {
+handle: 5658629712617297171;
+albedo: vec4(0.066420, 0.066420, 0.066420, 1.000000);
+metallic: 0.000000;
+roughness: 0.100000;
+emissive: vec4(1.000000, 0.186838, 0.061077, 5.000000);
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 1;
+}
+[Material2] {
+handle: 17593113763256355638;
+albedo: vec4(0.066420, 0.066420, 0.066420, 1.000000);
+metallic: 0.000000;
+roughness: 0.100000;
+emissive: vec4(1.000000, 0.186838, 0.061077, 5.000000);
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 2;
+}
+[Material3] {
+handle: 9907605921967817134;
+albedo: vec4(0.800993, 0.524700, 0.358812, 1.000000);
+metallic: 1.000000;
+roughness: 0.100000;
+emissive: vec4(0.000000, 0.000000, 0.000000, 0.000000);
+filepath: C:\Users\Jan\source\repos\Jaykreativ\ZapTemplate_dev\Models\ZapGear.glb;
+index: 3;
+}
+textureCount: 0;

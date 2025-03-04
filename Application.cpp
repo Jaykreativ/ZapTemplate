@@ -4,74 +4,58 @@
 #include "Zap/Rendering/PBRenderer.h"
 #include "Zap/Scene/Scene.h"
 #include "Zap/Scene/Actor.h"
-#include "Zap/ModelLoader.h"
 #include "Zap/Scene/Transform.h"
 #include "Zap/Scene/Material.h"
+#include "Zap/FileLoader.h"
 
 namespace app {
 	Zap::Window* window;
 	Zap::Scene* scene;
 	Zap::Renderer* renderer;
 	Zap::PBRenderer* pbRender;
+	Zap::Actor actor;
+	Zap::Actor camera;
 }
 
-void resize(GLFWwindow* window, int width, int height) {
-	app::pbRender->setViewport(width, height, 0, 0);
+void resize(Zap::ResizeEvent& eventParams, void* customParams) {
+	app::pbRender->setViewport(eventParams.width, eventParams.height, 0, 0);
+}
+
+void setupActors() {
+	Zap::ActorLoader loader;
+	app::actor = loader.load((std::string)"Actors/ZapGear.zac", app::scene); // Loading actor from file, they can be changed using the editor
+	loader.load((std::string)"Actors/Light1.zac", app::scene);               // All actors can be changed at runtime
+	loader.load((std::string)"Actors/Light2.zac", app::scene);
+
+	app::camera = Zap::Actor(); // Creating new actor at runtime, this cannot be used by the editor
+	app::scene->attachActor(app::camera);
+	app::camera.addTransform(glm::mat4(1));
+	app::camera.cmpTransform_setPos(0, 0, -2.5);
+	app::camera.addCamera();
 }
 
 void main() {
-	auto base = Zap::Base::createBase("Template Project Name");
+	auto base = Zap::Base::createBase("Template Project Name", "ZapTemplate.zal"); // you need to give the engine access to your asset library
 	base->init();
 	
 	app::window = new Zap::Window(1000, 600, "Template Title");
 	app::window->init();
-	app::window->setResizeCallback(resize);
+	app::window->getResizeEventHandler()->addCallback(resize);
 
 	app::scene = new Zap::Scene();
 
-	app::renderer = new Zap::Renderer(*app::window);
-	app::pbRender = new Zap::PBRenderer(*app::renderer, app::scene);
-
-	Zap::ModelLoader modelLoader = Zap::ModelLoader();
-	auto cube = modelLoader.load("Models/Cube.obj");
-
-	char texCol[] = {0xFF, 0xFF, 0xFF, 0xFF};
-	modelLoader.loadTexture(&texCol, 1, 1);
-
-	Zap::Actor actor = Zap::Actor();
-	app::scene->attachActor(actor);
-	actor.addTransform(glm::mat4(1));
-	actor.addModel(cube);
-	{
-		Zap::Material mat{};
-		mat.albedoColor = {1, 0.6, 0.1};
-		mat.roughness = 0.3;
-		mat.metallic = 0;
-		actor.cmpModel_setMaterial(mat);
-	}
-
-	Zap::Actor light = Zap::Actor();
-	app::scene->attachActor(light);
-	light.addTransform(glm::mat4(1));
-	light.cmpTransform_setPos(1, 2, -3);
-	light.addLight({1, 1, 1}, 4);
-
-	Zap::Actor light2 = Zap::Actor();
-	app::scene->attachActor(light2);
-	light2.addTransform(glm::mat4(1));
-	light2.cmpTransform_setPos(1, -4, -2);
-	light2.addLight({ 1, 0.6, 0.1 }, 3);
-
-	Zap::Actor camera = Zap::Actor();
-	app::scene->attachActor(camera);
-	camera.addTransform(glm::mat4(1));
-	camera.cmpTransform_setPos(0, 0, -5);
-	camera.addCamera();
+	app::renderer = new Zap::Renderer();
+	app::pbRender = new Zap::PBRenderer(app::scene);
+	
+	setupActors();
 
 	app::scene->init();
 
-	app::renderer->addRenderTemplate(app::pbRender);
-	app::pbRender->setViewport(1000, 600, 0, 0);
+	app::renderer->setTarget(app::window);
+	app::renderer->addRenderTask(app::pbRender);
+	app::pbRender->setViewport(app::window->getWidth(), app::window->getHeight(), 0, 0);
+	app::pbRender->clearColor = {.1, .1, .1, 1};
+
 	app::renderer->init();
 	app::renderer->beginRecord();
 	app::renderer->recRenderTemplate(app::pbRender);
@@ -82,12 +66,13 @@ void main() {
 	while (!app::window->shouldClose()) {
 		auto startFrame = std::chrono::high_resolution_clock::now();
 
-		actor.cmpTransform_rotate(25 * deltaTime, {1, 1, 1});
+		app::actor.cmpTransform_rotate(25 * deltaTime, {1, 1, 1});
 
-		app::pbRender->updateCamera(camera);
+		app::pbRender->updateCamera(app::camera);
 		app::scene->update();
 		app::renderer->render();
 
+		app::window->present();
 		app::window->pollEvents();
 
 		auto endFrame = std::chrono::high_resolution_clock::now();
@@ -98,6 +83,7 @@ void main() {
 	delete app::renderer;
 	app::scene->destroy();
 	delete app::scene;
+	app::window->getResizeEventHandler()->removeCallback(resize);
 	delete app::window;
 
 	base->terminate();

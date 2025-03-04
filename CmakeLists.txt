@@ -12,6 +12,8 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
 add_executable(ZapTemplate ${ZapTemplate_SRC})
 
+set_property(TARGET ZapTemplate PROPERTY CXX_STANDARD 17)
+
 set(Zap_DIR "${PROJECT_SOURCE_DIR}/../Zap")
 
 add_subdirectory(${Zap_DIR} "${Zap_DIR}/${CMAKE_BUILD_TYPE}")
